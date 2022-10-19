@@ -2,6 +2,7 @@ var express = require("express")
 var MongoClient=require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
 var app = express()
+const PORT = process.env.PORT ;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 let options = {
@@ -35,7 +36,8 @@ app.post('/users', async function (req, res) {
 
 
 // Set Port
-app.set('port', (process.env.PORT || 2500));
-app.listen(app.get('port'), function() {
-    console.log('Server started on port '+app.get('port'));
+
+
+app.listen(PORT, function() {
+    console.log(`Server started on port ${PORT}`)
 });
